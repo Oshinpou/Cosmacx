@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmacx Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .burger .line {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .shop-title {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .shop-title h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .product-card button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-card button:hover {
+            background-color: #e05b50;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div a="line"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="shop-title">
+        <h1>Our Products</h1>
+        <p>Explore our range of premium skincare products.</p>
+    </section>
+
+    <section class="products">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product Name 1</h3>
+            <p>Description of Product 1.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product Name 2</h3>
+            <p>Description of Product 2.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="product3.jpg" alt="Product 3">
+            <h3>Product Name 3</h3>
+            <p>Description of Product 3.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="product4.jpg" alt="Product 4">
+            <h3>Product Name 4</h3>
+            <p>Description of Product 4.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <img src="product5.jpg" alt="Product 5">
+            <h3>Product Name 5</h3>
+            <p>Description of Product 5.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+            <img src="product6.jpg" alt="Product 6">
+            <h3>Product Name 6</h3>
+            <p>Description of Product 6.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+            <img src="product7.jpg" alt="Product 7">
+            <h3>Product Name 7</h3>
+            <p>Description of Product 7.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+            <img src="product8.jpg" alt="Product 8">
+            <h3>Product Name 8</h3>
+            <p>Description of Product 8.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product-card">
+            <img src="product9.jpg" alt="Product 9">
+            <h3>Product Name 9</h3>
+            <p>Description of Product 9.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product-card">
+            <img src="product10.jpg" alt="Product 10">
+            <h3>Product Name 10</h3>
+            <p>Description of Product 10.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 11 -->
+        <div class="product-card">
+            <img src="product11.jpg" alt="Product 11">
+            <h3>Product Name 11</h3>
+            <p>Description of Product 11.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+
+        <!-- Product 12 -->
+        <div class="product-card">
+            <img src="product12.jpg" alt="Product 12">
+            <h3>Product Name 12</h3>
+            <p>Description of Product 12.</p>
+            <button onclick="buyNow()">Buy Now</button>
+            <button onclick="viewProduct()">View Product</button>
+        </div>
+    </section>
+
+    <script>
+        function buyNow() {
+            alert('Redirecting to the payment page.');
+            // Add your Buy Now logic here
+        }
+
+        function viewProduct() {
+            alert('Redirecting to the product details page.');
+            // Add your View Product logic here
+        }
+    </script>
+
+</body>
+</html>
