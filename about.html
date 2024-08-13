@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Cosmacx</title>
+    <link rel="stylesheet" href="styles.css">
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.about-hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.about-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.about-hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-content {
+    padding: 50px 20px;
+    background-color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-content p, .about-content ul {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.about-content ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.team-member {
+    display: inline-block;
+    width: 250px;
+    margin: 20px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-member h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 18px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>About Cosmacx</h1>
+        <p>Discover the story behind Cosmacx, a brand dedicated to helping you rise, renew, and energize your skin.</p>
+    </section>
+
+    <section class="about-content">
+        <h2>Our Story</h2>
+        <p>Cosmacx was founded with the belief that everyone deserves to feel confident in their own skin. We are passionate about creating products that not only enhance beauty but also promote healthy skin. Our journey started with a vision to bring high-quality, effective, and affordable skincare products to everyone.</p>
+
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide skincare solutions that empower individuals to embrace their natural beauty. We strive to innovate and create products that meet the diverse needs of our customers, ensuring that every product we offer is crafted with care and precision.</p>
+
+        <h2>Our Values</h2>
+        <ul>
+            <li>**Quality**: We prioritize quality in every product we create, using only the finest ingredients.</li>
+            <li>**Innovation**: We are constantly exploring new ideas and technologies to improve our products.</li>
+            <li>**Integrity**: We are committed to transparency and honesty in all our business practices.</li>
+            <li>**Sustainability**: We care about the environment and are dedicated to sustainable practices in our production and packaging.</li>
+        </ul>
+
+        <h2>Meet the Team</h2>
+        <div class="team-member">
+            <img src="team-member-image-url-1.jpg" alt="Team Member 1">
+            <h3>oshin.p</h3>
+            <p>Founder & CEO</p>
+        </div>
+        <div class="team-member">
+            <img src="team-member-image-url-2.jpg" alt="Team Member 2">
+            <h3>vaishali.r</h3>
+            <p>Chief Marketing Officer</p>
+        </div>
+        <!-- Add more team members as needed -->
+    </section>
+
+    <footer>
+        <p>Contact for Support: <a href="mailto:macxyy12@gmail.com">macxyy12@gmail.com</a></p>
+    </footer>
+
+    <script>
+    document.querySelector('.burger').addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('nav-active');
+});
+    
+    </script>
+</body>
+</html>
