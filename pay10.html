@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .payment-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cart-icon {
+            font-size: 40px;
+            color: #ff6f61;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .star-rating {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .star-rating i {
+            margin: 0 2px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .payment-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="cart-icon">
+            🛒
+        </div>
+        <h2>gleam booster</h2>
+        <div class="star-rating">
+            <i>⭐</i><i>⭐</i><i>⭐</i><i>⭐</i><i>⭐</i>
+        </div>
+        <p class="product-description">"Effortlessly complete your purchase and enjoy a seamless checkout experience with razorpay."</p>
+        <p class="price">₹1,899.00</p>
+        <div class="payment-button">
+           <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_OklBu64ys0UW8w" async> </script> </form>
+        </div>
+    </div>
+</body>
+</html>
