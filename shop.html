@@ -105,6 +105,28 @@
         .product-card button:hover {
             background-color: #e05b50;
         }
+   
+    .payment-container {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.payment-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     </style>
 </head>
 <body>
@@ -137,8 +159,16 @@
             <h3>COSMACX POWER MULBERRY SILK SKIN SERUM</h3>
             <h3>price: ₹1,499</h3>
             <p>"Revitalize your complexion with the luxurious nourishment of mulberry silk."</p>
-            <button onclick="buyNow()">Buy Now</button>
-            <button onclick="viewProduct()">View Product</button>
+            <div class="payment-container">
+    <h2>Complete Your Payment</h2>
+    <form>
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="pl_OkZcOFUnJTf3BR"
+                async>
+        </script>
+    </form>
+</div>
+            <button onclick="viewProduct()"><a href="mulbe1.html">View Product</a></button>
         </div>
 
         <!-- Product 2 -->
