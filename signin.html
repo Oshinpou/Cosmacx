@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmacx Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+
+<style>
+/* Add styles for the Track Order section */
+#track-order-section {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cosmacx Sign In</h1>
+        
+        <!-- Email Input -->
+        <form id="signin-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Sign In</button>
+        </form>
+
+        <!-- Email Connect/Disconnect Buttons -->
+        <div id="email-section">
+            <button id="connect-email">Connect Email</button>
+            <button id="disconnect-email" disabled>Disconnect Email</button>
+            <p id="email-status">Email not connected</p>
+        </div>
+
+        <!-- Track Order Button -->
+        <div id="track-order-section" style="display: none;">
+            <button id="track-order">Track Order</button>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const signinForm = document.getElementById('signin-form');
+    const connectEmailButton = document.getElementById('connect-email');
+    const disconnectEmailButton = document.getElementById('disconnect-email');
+    const emailStatus = document.getElementById('email-status');
+    const trackOrderSection = document.getElementById('track-order-section');
+    const trackOrderButton = document.getElementById('track-order');
+    let connectedEmail = null;
+
+    // Handle form submission
+    signinForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        if (email) {
+            connectedEmail = email;
+            emailStatus.textContent = `Email connected: ${email}`;
+            connectEmailButton.disabled = true;
+            disconnectEmailButton.disabled = false;
+            trackOrderSection.style.display = 'block'; // Show Track Order button
+        }
+    });
+
+    // Handle email connect button click
+    connectEmailButton.addEventListener('click', function () {
+        if (!connectedEmail) {
+            alert('Please sign in with your email first.');
+        } else {
+            emailStatus.textContent = `Email connected: ${connectedEmail}`;
+            trackOrderSection.style.display = 'block'; // Show Track Order button
+        }
+    });
+
+    // Handle email disconnect button click
+    disconnectEmailButton.addEventListener('click', function () {
+        connectedEmail = null;
+        emailStatus.textContent = 'Email not connected';
+        connectEmailButton.disabled = false;
+        disconnectEmailButton.disabled = true;
+        trackOrderSection.style.display = 'none'; // Hide Track Order button
+    });
+
+    // Track Order button functionality
+    trackOrderButton.addEventListener('click', function () {
+        const message = `To track your order, you can either:
+1. Call +91 84529 39172
+2. Email macxyy12@gmail.com`;
+
+        alert(message);
+
+        // Optional: Automatically open the mail client with a pre-filled subject
+        const mailtoLink = `mailto:macxyy12@gmail.com?subject=Order Tracking Request from ${connectedEmail}`;
+        window.location.href = mailtoLink;
+    });
+});
+    
+    </script>
+</body>
+</html>
