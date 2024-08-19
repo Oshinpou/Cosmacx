@@ -6,6 +6,24 @@
     <title>Cosmacx Shop</title>
     <link rel="stylesheet" href="styles.css">
 
+<!-- Google tag (gtag.js) event - delayed navigation helper -->
+<script>
+  // Helper function to delay opening a URL until a gtag event is sent.
+  // Call it in response to an action that should navigate to a URL.
+  function gtagSendEvent(url) {
+    var callback = function () {
+      if (typeof url === 'string') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'ads_conversion_Purchase_Page_load_http_1', {
+      'event_callback': callback,
+      'event_timeout': 2000,
+      // <event_parameters>
+    });
+    return false;
+  }
+</script>
 
     
     <meta name="google-site-verification" content="_QAaFqbvvz83n2_sneMst_-Ma2mCiMvy5EAidE8b2h0" />
