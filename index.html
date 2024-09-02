@@ -132,7 +132,59 @@ footer {
     color: white;
 }
 
-</style>
+* {box-sizing: border-box;}
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+.slides {
+    display: none;
+    width: 100%;
+}
+.slides img {
+    width: 100%;
+    vertical-align: middle;
+}
+.text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+.active {
+    display: block;
+}
+.fade {
+    animation: fade 1.5s infinite;
+}
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+.dots-container {
+    text-align: center;
+    padding: 20px;
+}
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active-dot {
+    background-color: #717171;
+}
+    </style>
 
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3RQYHH420">
@@ -168,6 +220,27 @@ footer {
         </nav>
     </header>
 
+   <div class="slideshow-container">
+    <div class="slides fade">
+        <img src="image1.jpeg" alt="Cosmacx Serums">
+        <div class="text">Try Cosmacx Serums for a Subtle Look</div>
+    </div>
+    <div class="slides fade">
+        <img src="image2.jpeg" alt="Moisturizer">
+        <div class="text">Try Cosmacx Moisturizer</div>
+    </div>
+    <div class="slides fade">
+        <img src="image3.jpeg" alt="Elixir">
+        <div class="text">Try Cosmacx Elixir</div>
+    </div>
+</div>
+
+<div class="dots-container">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+</div>
+    
     <section class="hero">
         <h1>Cosmacx</h1>
         <br>
@@ -216,6 +289,26 @@ footer {
 });
 
 document.querySelector('.nav-links').classList.toggle('nav-active');
+    
+    let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("slides");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active-dot", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active-dot";
+    setTimeout(showSlides, 4000); // Change image every 4 seconds
+}
     
     </script>
 </body>
