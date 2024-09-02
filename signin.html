@@ -3,110 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmacx Sign In</title>
-    <link rel="stylesheet" href="styles.css">
-
-<style>
-/* Add styles for the Track Order section */
-#track-order-section {
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:disabled {
-    background-color: #ccc;
-}
-</style>
+    <title>User Portal</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 0; padding: 20px;}
+        .container {max-width: 500px; margin: auto;}
+        h2 {text-align: center;}
+        input[type="email"], input[type="text"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .status {text-align: center; margin-top: 10px;}
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Cosmacx Sign In</h1>
-        
-        <!-- Email Input -->
-        <form id="signin-form">
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-            <button type="submit">Sign In</button>
-        </form>
-
-        <!-- Email Connect/Disconnect Buttons -->
-        <div id="email-section">
-            <button id="connect-email">Connect Email</button>
-            <button id="disconnect-email" disabled>Disconnect Email</button>
-            <p id="email-status">Email not connected</p>
-        </div>
-
-        <!-- Track Order Button -->
-        <div id="track-order-section" style="display: none;">
-            <button id="track-order">Track Order</button>
-        </div>
+<div class="container">
+    <!-- Sign-In Form -->
+    <div id="sign-in-form">
+        <h2>Sign In</h2>
+        <input type="email" id="sign-in-email" placeholder="Enter your email" required>
+        <button onclick="signIn()">Sign In</button>
+        <p id="sign-in-status" class="status"></p>
     </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const signinForm = document.getElementById('signin-form');
-    const connectEmailButton = document.getElementById('connect-email');
-    const disconnectEmailButton = document.getElementById('disconnect-email');
-    const emailStatus = document.getElementById('email-status');
-    const trackOrderSection = document.getElementById('track-order-section');
-    const trackOrderButton = document.getElementById('track-order');
-    let connectedEmail = null;
+    <!-- Track Order Form -->
+    <div id="track-order-form">
+        <h2>Track Your Order</h2>
+        <input type="email" id="track-order-email" placeholder="Enter your email" required>
+        <input type="text" id="order-number" placeholder="Enter your order number" required>
+        <button onclick="trackOrder()">Track Order</button>
+        <p id="order-status" class="status"></p>
+    </div>
 
-    // Handle form submission
-    signinForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const email = document.getElementById('email').value;
-        if (email) {
-            connectedEmail = email;
-            emailStatus.textContent = `Email connected: ${email}`;
-            connectEmailButton.disabled = true;
-            disconnectEmailButton.disabled = false;
-            trackOrderSection.style.display = 'block'; // Show Track Order button
-        }
-    });
+    <!-- Newsletter Subscription Form -->
+    <div id="newsletter-form">
+        <h2>Subscribe to our Newsletter</h2>
+        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+        <button onclick="subscribeNewsletter()">Subscribe</button>
+        <p id="subscribe-status" class="status"></p>
+    </div>
+</div>
 
-    // Handle email connect button click
-    connectEmailButton.addEventListener('click', function () {
-        if (!connectedEmail) {
-            alert('Please sign in with your email first.');
+<script>
+// Handle Sign-In
+function signIn() {
+    const email = document.getElementById("sign-in-email").value;
+    if (email) {
+        localStorage.setItem("userEmail", email);
+        document.getElementById("sign-in-status").innerText = "Signed in as " + email;
+        sendEmailToServer(email, "signin");
+    }
+}
+
+// Check if user is already signed in
+function checkSignInStatus() {
+    const email = localStorage.getItem("userEmail");
+    if (email) {
+        document.getElementById("sign-in-status").innerText = "Signed in as " + email;
+    }
+}
+
+// Handle Order Tracking
+function trackOrder() {
+    const email = document.getElementById("track-order-email").value;
+    const orderNumber = document.getElementById("order-number").value;
+    if (email && orderNumber) {
+        sendEmailToServer({ email, orderNumber }, "trackorder");
+        document.getElementById("order-status").innerText = "Order tracking information has been sent.";
+    }
+}
+
+// Handle Newsletter Subscription
+function subscribeNewsletter() {
+    const email = document.getElementById("newsletter-email").value;
+    if (email) {
+        sendEmailToServer(email, "newsletter");
+        document.getElementById("subscribe-status").innerText = "You have subscribed to our newsletter.";
+    }
+}
+
+// Send email data to the server
+function sendEmailToServer(data, type) {
+    fetch("", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ data, type })
+    })
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.error("Error:", error));
+}
+
+// Automatically check sign-in status on page load
+document.addEventListener("DOMContentLoaded", checkSignInStatus);
+</script>
+
+<?php
+    // PHP Backend to handle requests
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $type = $data['type'];
+
+        $to = "macxyy12@gmail.com";
+        $subject = "Website Interaction - " . ucfirst($type);
+
+        if ($type === "signin") {
+            $message = "Sign-in attempt with email: " . $data['data'];
+        } elseif ($type === "trackorder") {
+            $message = "Order tracking request for email: " . $data['data']['email'] . " with order number: " . $data['data']['orderNumber'];
+        } elseif ($type === "newsletter") {
+            $message = "Newsletter subscription with email: " . $data['data'];
         } else {
-            emailStatus.textContent = `Email connected: ${connectedEmail}`;
-            trackOrderSection.style.display = 'block'; // Show Track Order button
+            $message = "Unknown request type.";
         }
-    });
 
-    // Handle email disconnect button click
-    disconnectEmailButton.addEventListener('click', function () {
-        connectedEmail = null;
-        emailStatus.textContent = 'Email not connected';
-        connectEmailButton.disabled = false;
-        disconnectEmailButton.disabled = true;
-        trackOrderSection.style.display = 'none'; // Hide Track Order button
-    });
+        $headers = "From: no-reply@yourwebsite.com" . "\r\n" .
+                   "Reply-To: no-reply@yourwebsite.com" . "\r\n" .
+                   "X-Mailer: PHP/" . phpversion();
 
-    // Track Order button functionality
-    trackOrderButton.addEventListener('click', function () {
-        const message = `To track your order, you can either:
-1. Call +91 84529 39172
-2. Email macxyy12@gmail.com`;
-
-        alert(message);
-
-        // Optional: Automatically open the mail client with a pre-filled subject
-        const mailtoLink = `mailto:macxyy12@gmail.com?subject=Order Tracking Request from ${connectedEmail}`;
-        window.location.href = mailtoLink;
-    });
-});
-    
-    </script>
+        if (mail($to, $subject, $message, $headers)) {
+            echo "Request processed successfully.";
+        } else {
+            echo "Error processing the request.";
+        }
+    }
+?>
 </body>
 </html>
