@@ -15,10 +15,26 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f7f7f7;
+    background: 
+    repeating-linear-gradient(
+        45deg,
+        black 0px,
+        black 2px, /* Width of the black lines */
+        #FF5733 2px, 
+        #FF5733 28px, /* Size of the colored squares */
+        black 28px, 
+        black 30px, /* Another black line */
+        #33FF57 30px,
+        #33FF57 56px, /* Next square */
+        black 56px,
+        black 58px,
+        #3357FF 58px,
+        #3357FF 84px
+    );
+    background-size: 60px 60px;
 }
-
-header {
+        
+        header {
     background-color: #333;
     padding: 10px 20px;
 }
