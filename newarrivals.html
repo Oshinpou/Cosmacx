@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmacx New Arrivals</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.heading-wrapper {
+    text-align: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.heading {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #ff4500;
+    color: #fff;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-title {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: #555;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #e03d00;
+    margin: 10px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.view-btn {
+    background-color: #5f9ea0;
+}
+
+.view-btn:hover {
+    background-color: #538b8c;
+}
+
+.buy-btn {
+    background-color: #ff4500;
+}
+
+.buy-btn:hover {
+    background-color: #e03d00;
+}
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="heading-wrapper">
+            <h1 class="heading">New Arrivals</h1>
+            <span class="tag">New!</span>
+        </div>
+        <div class="products">
+            <div class="product-card">
+                <img src="images/new1.jpeg" alt="Moisturizer Box">
+                <h2 class="product-title">Moisturizer Box</h2>
+                <p class="price">₹2,000</p>
+                <div class="buttons">
+                    <a href="view-product-moisturizer.html" class="btn view-btn">View Product</a>
+                    <a href="buy-moisturizer.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new2.jpeg" alt="Nourisher Box">
+                <h2 class="product-title">Nourisher Box</h2>
+                <p class="price">₹2,200</p>
+                <div class="buttons">
+                    <a href="view-product-nourisher.html" class="btn view-btn">View Product</a>
+                    <a href="buy-nourisher.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new3.jpeg" alt="Hydrator Bottle">
+                <h2 class="product-title">Hydrator Bottle</h2>
+                <p class="price">₹1,800</p>
+                <div class="buttons">
+                    <a href="view-product-hydrator.html" class="btn view-btn">View Product</a>
+                    <a href="buy-hydrator.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new4.jpeg" alt="Barrier Skin Repair Bottle">
+                <h2 class="product-title">Barrier Skin Repair Bottle</h2>
+                <p class="price">₹2,500</p>
+                <div class="buttons">
+                    <a href="view-product-barrier-skin-repair.html" class="btn view-btn">View Product</a>
+                    <a href="buy-barrier-skin-repair.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new5.jpeg" alt="Genes Booster Bottle">
+                <h2 class="product-title">Genes Booster Bottle</h2>
+                <p class="price">₹2,800</p>
+                <div class="buttons">
+                    <a href="view-product-genes-booster.html" class="btn view-btn">View Product</a>
+                    <a href="buy-genes-booster.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new6.jpeg" alt="Cell Repair Bottle">
+                <h2 class="product-title">Cell Repair Bottle</h2>
+                <p class="price">₹2,300</p>
+                <div class="buttons">
+                    <a href="view-product-cell-repair.html" class="btn view-btn">View Product</a>
+                    <a href="buy-cell-repair.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new7.jpeg" alt="Tissue Repair Bottle">
+                <h2 class="product-title">Tissue Repair Bottle</h2>
+                <p class="price">₹2,600</p>
+                <div class="buttons">
+                    <a href="view-product-tissue-repair.html" class="btn view-btn">View Product</a>
+                    <a href="buy-tissue-repair.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new8.jpeg" alt="Damage Repair Bottle">
+                <h2 class="product-title">Damage Repair Bottle</h2>
+                <p class="price">₹2,700</p>
+                <div class="buttons">
+                    <a href="view-product-damage-repair.html" class="btn view-btn">View Product</a>
+                    <a href="buy-damage-repair.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new9.jpeg" alt="Skin Color Repair Bottle">
+                <h2 class="product-title">Skin Color Repair Bottle</h2>
+                <p class="price">₹2,900</p>
+                <div class="buttons">
+                    <a href="view-product-skin-color-repair.html" class="btn view-btn">View Product</a>
+                    <a href="buy-skin-color-repair.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/new10.jpeg" alt="Skin Repair Full Kit">
+                <h2 class="product-title">Skin Repair Full Kit</h2>
+                <p class="price">₹18,000</p>
+                <div class="buttons">
+                    <a href="view-product-skin-repair-kit.html" class="btn view-btn">View Product</a>
+                    <a href="buy-skin-repair-kit.html" class="btn buy-btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
