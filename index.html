@@ -208,6 +208,75 @@ footer {
   border-radius: 8px; /* Optional: Adds rounded corners to the video */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
 }
+   .suggested-products {
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.suggested-products h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.product-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+}
+
+.product-card {
+    min-width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.product-card button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: #0056b3;
+}
+
+.product-card button.buy-now {
+    background-color: #28a745;
+}
+
+.product-card button.buy-now:hover {
+    background-color: #218838;
+}
+    
     </style>
 
   <!-- Google tag (gtag.js) -->
@@ -279,6 +348,33 @@ footer {
     <span class="dot"></span> 
     <span class="dot"></span> 
 </div>
+    
+   <section class="suggested-products">
+    <h2>Suggested Products for Perfect Facial Shape</h2>
+    <div class="product-slider">
+        <div class="product-card">
+            <img src="mulbe5.jpeg" alt="Facial Symmetry Fixing Serum">
+            <h3>Facial Symmetry Fixing Serum</h3>
+            <p>Achieve facial balance with our powerful symmetry serum.</p>
+            <a href="mulbe5.html" class="view-product">View Product</a>
+            <a href="pay5.html?product=symmetry-fixing-serum" class="buy-now">Buy Now</a>
+        </div>
+        <div class="product-card">
+            <img src="mulbe4.jpeg" alt="Face Sculpting Contouring Elixir">
+            <h3>Face Sculpting Contouring Elixir</h3>
+            <p>Sculpt and contour your face for a defined look.</p>
+            <a href="mulbe4.html" class="view-product">View Product</a>
+            <a href="pay4.html?product=face-sculpting-contouring-elixir" class="buy-now">Buy Now</a>
+        </div>
+        <div class="product-card">
+            <img src="mulbe7.jpeg" alt="Muscle Toning Skin Serum">
+            <h3>Muscle Toning Skin Serum</h3>
+            <p>Tone and firm your skin with this advanced serum.</p>
+            <a href="mulbe7.html" class="view-product">View Product</a>
+            <a href="pay7.html?product=muscle-toning-skin-serum" class="buy-now">Buy Now</a>
+        </div>
+    </div>
+</section>
     
     <section class="hero">
         <h1>Cosmacx</h1>
