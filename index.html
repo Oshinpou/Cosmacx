@@ -276,7 +276,41 @@ footer {
 .product-card button.buy-now:hover {
     background-color: #218838;
 }
-    
+   /* General Button Styles */
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+/* View Product Button */
+.button.view-product {
+    background-color: #007BFF; /* Blue */
+}
+
+.button.view-product:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Buy Now Button */
+.button.buy-now {
+    background-color: #28a745; /* Green */
+}
+
+.button.buy-now:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+} 
+   
     </style>
 
   <!-- Google tag (gtag.js) -->
