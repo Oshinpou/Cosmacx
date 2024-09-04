@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmacx Skin Repair Full Kit - Comprehensive Skin Care Solution</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #444;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .nav-btn {
+            font-size: 2rem;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .product-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .product-details h2 {
+            font-size: 1.8rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .product-details p, .product-details ul {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .product-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .buy-now-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 15px 0;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: #ff6600;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 50px;
+            box-shadow: 0 6px 12px rgba(255, 102, 0, 0.3);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #e55b00;
+        }
+
+        .product-price {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #e55b00;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .kit-details {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .kit-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="product-title">Cosmacx Skin Repair Full Kit - Comprehensive Skin Care Solution</h1>
+
+        <div class="image-slider">
+            <div class="slides">
+                <img src="new10.jpeg" alt="Skin Repair Kit Image 1">
+                <img src="me10.jpeg" alt="Skin Repair Kit Image 2">
+                <img src="drop.jpg" alt="Skin Repair Kit Image 3">
+                <img src="new10.jpeg" alt="Skin Repair Kit Image 4">
+            </div>
+            <div class="navigation">
+                <span class="nav-btn" id="prev">&#10094;</span>
+                <span class="nav-btn" id="next">&#10095;</span>
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h2>Description</h2>
+            <p>The Cosmacx Skin Repair Full Kit is the ultimate solution for comprehensive skin care. This complete kit includes all 9 products from our skincare range, designed to work synergistically to address various skin concerns and repair damage. Ideal for those seeking an all-in-one solution for optimal skin health and rejuvenation.</p>
+
+            <h2>Included Products</h2>
+            <ul>
+                <li>Symmetry Fixing Serum</li>
+                <li>Moisturizer Elixir</li>
+                <li>Muscle Toning Serum</li>
+                <li>Mulberry Silk Skin Serum</li>
+                <li>Skin Nourisher</li>
+                <li>Skin Hydrator</li>
+                <li>Barrier Skin Repairer</li>
+                <li>Skin Genes Booster</li>
+                <li>Skin Cells Repairer</li>
+            </ul>
+
+            <h2>Benefits</h2>
+            <ul>
+                <li>Complete skin repair and rejuvenation</li>
+                <li>Addresses multiple skin concerns with a single kit</li>
+                <li>Restores skin's natural balance and health</li>
+                <li>Enhances skin texture and appearance</li>
+                <li>Provides a comprehensive skincare routine</li>
+            </ul>
+
+            <h2>Usage</h2>
+            <p>Follow the included instructions for each product to create a personalized skincare regimen. Use as directed for best results. Ideal for daily use to maintain healthy, radiant skin.</p>
+        </div>
+
+        <a href="buy-page.html" class="buy-now-btn">Buy Now</a>
+        
+        <!-- Price Section -->
+        <div class="product-price">
+            <span>₹18000</span>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const images = slides.querySelectorAll('img');
+        const totalSlides = images.length;
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlidePosition();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlidePosition();
+        });
+
+        function updateSlidePosition() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
+</body>
+</html>
