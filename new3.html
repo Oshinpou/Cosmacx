@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmacx Skin Hydrator - Deep Moisture & Refreshment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #444;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .nav-btn {
+            font-size: 2rem;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .product-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .product-details h2 {
+            font-size: 1.8rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .product-details p, .product-details ul {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .product-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .buy-now-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 15px 0;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: #ff6600;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 50px;
+            box-shadow: 0 6px 12px rgba(255, 102, 0, 0.3);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #e55b00;
+        }
+
+        .product-price {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #e55b00;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="product-title">Cosmacx Skin Hydrator - Deep Moisture & Refreshment</h1>
+
+        <div class="image-slider">
+            <div class="slides">
+                <img src="skin-hydrator1.jpg" alt="Skin Hydrator Image 1">
+                <img src="skin-hydrator2.jpg" alt="Skin Hydrator Image 2">
+                <img src="skin-hydrator3.jpg" alt="Skin Hydrator Image 3">
+                <img src="skin-hydrator4.jpg" alt="Skin Hydrator Image 4">
+            </div>
+            <div class="navigation">
+                <span class="nav-btn" id="prev">&#10094;</span>
+                <span class="nav-btn" id="next">&#10095;</span>
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h2>Description</h2>
+            <p>Quench your skin's thirst with Cosmacx Skin Hydrator, designed to deliver deep moisture and lasting refreshment. This lightweight, fast-absorbing hydrator replenishes and locks in moisture, leaving your skin feeling soft, smooth, and invigorated.</p>
+
+            <h2>Ingredients</h2>
+            <ul>
+                <li>Hyaluronic Acid</li>
+                <li>Glycerin</li>
+                <li>Vitamin C (Ascorbic Acid)</li>
+                <li>Cucumber Extract</li>
+                <li>Green Tea Extract</li>
+            </ul>
+
+            <h2>Benefits</h2>
+            <ul>
+                <li>Provides intense hydration</li>
+                <li>Improves skin texture and elasticity</li>
+                <li>Brightens and revitalizes the complexion</li>
+                <li>Soothes and calms the skin</li>
+                <li>Lightweight and fast-absorbing formula</li>
+            </ul>
+
+            <h2>Usage</h2>
+            <p>Apply evenly to clean skin, massaging gently until fully absorbed. Use daily, morning and night, for optimal hydration and refreshment.</p>
+        </div>
+
+        <a href="buy-page.html" class="buy-now-btn">Buy Now</a>
+        
+        <!-- Price Section -->
+        <div class="product-price">
+            <span>₹1800</span>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const images = slides.querySelectorAll('img');
+        const totalSlides = images.length;
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlidePosition();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlidePosition();
+        });
+
+        function updateSlidePosition() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
+</body>
+</html>
