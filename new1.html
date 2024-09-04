@@ -4,119 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmacx Moisturizer - Ultra Peptide Moisture Boost</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        .product-title {
+            font-size: 2.5rem;
+            color: #444;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-.product-title {
-    font-size: 2.5rem;
-    color: #444;
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .image-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
 
-.image-slider {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto 30px;
-    overflow: hidden;
-    border-radius: 10px;
-}
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
 
-.slides img {
-    width: 100%;
-    border-radius: 10px;
-}
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
 
-.navigation {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
+        .nav-btn {
+            font-size: 2rem;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
 
-.nav-btn {
-    font-size: 2rem;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-}
+        .product-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
 
-.product-details {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-}
+        .product-details h2 {
+            font-size: 1.8rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
 
-.product-details h2 {
-    font-size: 1.8rem;
-    color: #222;
-    margin-bottom: 10px;
-}
+        .product-details p, .product-details ul {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
 
-.product-details p, .product-details ul {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-}
+        .product-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
 
-.product-details ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
+        .buy-now-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 15px 0;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: #ff6600;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 50px;
+            box-shadow: 0 6px 12px rgba(255, 102, 0, 0.3);
+            transition: background-color 0.3s ease-in-out;
+        }
 
-.buy-now-btn {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 15px 0;
-    font-size: 1.5rem;
-    text-align: center;
-    background-color: #ff6600;
-    color: #fff;
-    text-transform: uppercase;
-    border-radius: 50px;
-    box-shadow: 0 6px 12px rgba(255, 102, 0, 0.3);
-    transition: background-color 0.3s ease-in-out;
-}
+        .buy-now-btn:hover {
+            background-color: #e55b00;
+        }
 
-.buy-now-btn:hover {
-    background-color: #e55b00;
-}
-</style>
+        .product-price {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #e55b00;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1 class="product-title">Cosmacx Ultra Peptide Moisture Boost</h1>
+
         <div class="image-slider">
             <div class="slides">
                 <img src="new1.jpg" alt="Moisturizer Image 1">
-                <img src="me1.jpg" alt="Moisturizer Image 2">
+                <img src="me1.jpeg" alt="Moisturizer Image 2">
                 <img src="drop.jpg" alt="Moisturizer Image 3">
                 <img src="new10.jpeg" alt="Moisturizer Image 4">
             </div>
@@ -153,27 +160,32 @@
         </div>
 
         <a href="buy-page.html" class="buy-now-btn">Buy Now</a>
+        
+        <!-- Price Section -->
+        <div class="product-price">
+            <span>₹2000</span>
+        </div>
     </div>
 
     <script>
-      let currentIndex = 0;
-const slides = document.querySelector('.slides');
-const images = slides.querySelectorAll('img');
-const totalSlides = images.length;
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const images = slides.querySelectorAll('img');
+        const totalSlides = images.length;
 
-document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlidePosition();
-});
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlidePosition();
+        });
 
-document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateSlidePosition();
-});
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlidePosition();
+        });
 
-function updateSlidePosition() {
-    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
+        function updateSlidePosition() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
     </script>
 </body>
 </html>
