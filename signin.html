@@ -1,145 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Portal</title>
-    <style>
-        body {font-family: Arial, sans-serif; margin: 0; padding: 20px;}
-        .container {max-width: 500px; margin: auto;}
-        h2 {text-align: center;}
-        input[type="email"], input[type="text"], button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .status {text-align: center; margin-top: 10px;}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+    }
+
+    .login-container {
+      width: 350px;
+      padding: 40px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .login-container input:focus {
+      border-color: #6e8efb;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background: #6e8efb;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background: #5a75d6;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-    <!-- Sign-In Form -->
-    <div id="sign-in-form">
-        <h2>Sign In</h2>
-        <input type="email" id="sign-in-email" placeholder="Enter your email" required>
-        <button onclick="signIn()">Sign In</button>
-        <p id="sign-in-status" class="status"></p>
-    </div>
 
-    <!-- Track Order Form -->
-    <div id="track-order-form">
-        <h2>Track Your Order</h2>
-        <input type="email" id="track-order-email" placeholder="Enter your email" required>
-        <input type="text" id="order-number" placeholder="Enter your order number" required>
-        <button onclick="trackOrder()">Track Order</button>
-        <p id="order-status" class="status"></p>
-    </div>
+  <div class="login-container">
+    <h2>User Login</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="loginUser()">Login</button>
+    <p id="message"></p>
+  </div>
 
-    <!-- Newsletter Subscription Form -->
-    <div id="newsletter-form">
-        <h2>Subscribe to our Newsletter</h2>
-        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
-        <button onclick="subscribeNewsletter()">Subscribe</button>
-        <p id="subscribe-status" class="status"></p>
-    </div>
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dotenv"></script>
+  <script>
+    // Load environment variables using dotenv (for backend/server environments)
+    // If you are using this in a frontend app, don't use dotenv as it exposes the variables to the client-side.
+    
+    const SUPABASE_URL = 'https://zwgurykthryrphfdcpbs.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwdmNqZGNieXFqaWpmYnR5ZGNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjcxOTY4MDEsImV4cCI6MjA0Mjc3MjgwMX0.2I8qhErf0MdJrtIuCqLlvbEAixx2a_unBmTmjSmfRjg';
+    
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    
+    // Function to log in the user
+    async function loginUser() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-<script>
-// Handle Sign-In
-function signIn() {
-    const email = document.getElementById("sign-in-email").value;
-    if (email) {
-        localStorage.setItem("userEmail", email);
-        document.getElementById("sign-in-status").innerText = "Signed in as " + email;
-        sendEmailToServer(email, "signin");
-    }
-}
-
-// Check if user is already signed in
-function checkSignInStatus() {
-    const email = localStorage.getItem("userEmail");
-    if (email) {
-        document.getElementById("sign-in-status").innerText = "Signed in as " + email;
-    }
-}
-
-// Handle Order Tracking
-function trackOrder() {
-    const email = document.getElementById("track-order-email").value;
-    const orderNumber = document.getElementById("order-number").value;
-    if (email && orderNumber) {
-        sendEmailToServer({ email, orderNumber }, "trackorder");
-        document.getElementById("order-status").innerText = "Order tracking information has been sent.";
-    }
-}
-
-// Handle Newsletter Subscription
-function subscribeNewsletter() {
-    const email = document.getElementById("newsletter-email").value;
-    if (email) {
-        sendEmailToServer(email, "newsletter");
-        document.getElementById("subscribe-status").innerText = "You have subscribed to our newsletter.";
-    }
-}
-
-// Send email data to the server
-function sendEmailToServer(data, type) {
-    fetch("", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ data, type })
-    })
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.error("Error:", error));
-}
-
-// Automatically check sign-in status on page load
-document.addEventListener("DOMContentLoaded", checkSignInStatus);
-</script>
-
-<?php
-    // PHP Backend to handle requests
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $data = json_decode(file_get_contents('php://input'), true);
-        $type = $data['type'];
-
-        $to = "macxyy12@gmail.com";
-        $subject = "Website Interaction - " . ucfirst($type);
-
-        if ($type === "signin") {
-            $message = "Sign-in attempt with email: " . $data['data'];
-        } elseif ($type === "trackorder") {
-            $message = "Order tracking request for email: " . $data['data']['email'] . " with order number: " . $data['data']['orderNumber'];
-        } elseif ($type === "newsletter") {
-            $message = "Newsletter subscription with email: " . $data['data'];
+      try {
+        const { user, error } = await supabase.auth.signInWithPassword({
+          email: email,
+          password: password
+        });
+        
+        if (error) {
+          document.getElementById('message').innerText = error.message;
         } else {
-            $message = "Unknown request type.";
+          document.getElementById('message').innerText = 'Login successful!';
+          // Redirect or do something else upon success
         }
-
-        $headers = "From: no-reply@yourwebsite.com" . "\r\n" .
-                   "Reply-To: no-reply@yourwebsite.com" . "\r\n" .
-                   "X-Mailer: PHP/" . phpversion();
-
-        if (mail($to, $subject, $message, $headers)) {
-            echo "Request processed successfully.";
-        } else {
-            echo "Error processing the request.";
-        }
+      } catch (err) {
+        document.getElementById('message').innerText = 'Something went wrong. Please try again.';
+      }
     }
-?>
+  </script>
 </body>
 </html>
