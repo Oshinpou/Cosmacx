@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+    }
+
+    .login-container {
+      width: 350px;
+      padding: 40px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .login-container input:focus {
+      border-color: #6e8efb;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background: #6e8efb;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background: #5a75d6;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>User Login</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="loginUser()">Login</button>
+    <p id="message"></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dotenv"></script>
+  <script>
+    // Load environment variables using dotenv (for backend/server environments)
+    // If you are using this in a frontend app, don't use dotenv as it exposes the variables to the client-side.
+    
+    const SUPABASE_URL = 'https://zwgurykthryrphfdcpbs.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwdmNqZGNieXFqaWpmYnR5ZGNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjcxOTY4MDEsImV4cCI6MjA0Mjc3MjgwMX0.2I8qhErf0MdJrtIuCqLlvbEAixx2a_unBmTmjSmfRjg';
+    
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    
+    // Function to log in the user
+    async function loginUser() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const { user, error } = await supabase.auth.signInWithPassword({
+          email: email,
+          password: password
+        });
+        
+        if (error) {
+          document.getElementById('message').innerText = error.message;
+        } else {
+          document.getElementById('message').innerText = 'Login successful!';
+          // Redirect or do something else upon success
+        }
+      } catch (err) {
+        document.getElementById('message').innerText = 'Something went wrong. Please try again.';
+      }
+    }
+  </script>
+</body>
+</html>
