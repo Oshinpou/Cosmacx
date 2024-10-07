@@ -111,7 +111,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
         localStorage.setItem('currentUser', JSON.stringify(user));
 
         alert('Login successful!');
-        window.location.href = 'account.html'; // Redirect to the user's account page
+        window.location.href = 'admin.html'; // Redirect to the user's account page
     } else {
         document.getElementById('message').textContent = 'Invalid login credentials!';
     }
