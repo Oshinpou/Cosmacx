@@ -3,38 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>User Account</title>
     <link rel="stylesheet" href="styles.css">
 <style>
-  body {
+
+    body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
-}
-
-.form-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-h2.title {
-    font-size: 24px;
-    margin-bottom: 20px;
+h1 {
     color: green;
     font-family: cursive;
-    font-weight: bold;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
+p {
+    font-size: 18px;
     margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
 }
 
 button {
@@ -43,7 +29,8 @@ button {
     padding: 10px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    margin: 10px;
+    width: 150px;
     border-radius: 4px;
 }
 
@@ -59,47 +46,66 @@ button:hover {
 </style>
 </head>
 <body>
-    <h1>Admin Panel</h1>
-    <div id="usersData"></div>
-    <button id="logoutBtn">Log Out</button>
+    <div class="account-container">
+        <h1>Welcome, <span id="userName"></span>!</h1>
+        <p>Email: <span id="userEmail"></span></p>
+        <p>Username: <span id="userUsername"></span></p>
+
+        <div class="buttons">
+            <button id="logoutBtn">Log Out</button>
+            <button id="deleteAccountBtn">Delete Account</button>
+        </div>
+
+        <div id="message"></div>
+
+        <footer>
+            <p>For queries and help, contact: <a href="mailto:macxyy12@gmail.com">macxyy12@gmail.com</a> | Phone: +91 8452939172</p>
+        </footer>
+    </div>
 
     <script>
 
-      // Load user data and display it in the Admin panel
+        // On page load, display the logged-in user's data
 document.addEventListener('DOMContentLoaded', function () {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const usersData = document.getElementById('usersData');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    if (users.length === 0) {
-        usersData.textContent = 'No users found.';
+    if (!currentUser) {
+        alert('You need to login first!');
+        window.location.href = 'index.html'; // Redirect to login/signup page
     } else {
-        usersData.innerHTML = '<h2>Registered Users:</h2>';
-        users.forEach((user, index) => {
-            usersData.innerHTML += `
-                <p><strong>User:</strong> ${user.username}, <strong>Email:</strong> ${user.email} 
-                <strong>Status:</strong> ${user.loggedIn ? 'Logged In' : 'Logged Out'}
-                <button onclick="deleteUser(${index})">Delete Account</button></p>
-            `;
-        });
+        document.getElementById('userName').textContent = currentUser.username;
+        document.getElementById('userEmail').textContent = currentUser.email;
+        document.getElementById('userUsername').textContent = currentUser.username;
     }
 });
 
-// Log out and delete functions
+// Handle Log Out
 document.getElementById('logoutBtn').addEventListener('click', function () {
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    users.forEach(user => user.loggedIn = false);
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    users = users.map(user => user.username === currentUser.username ? { ...user, loggedIn: false } : user);
     localStorage.setItem('users', JSON.stringify(users));
+    localStorage.removeItem('currentUser');
     alert('Logged out successfully!');
     window.location.href = 'index.html'; // Redirect to login/signup page
 });
 
-function deleteUser(index) {
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    users.splice(index, 1);
-    localStorage.setItem('users', JSON.stringify(users));
-    alert('Account deleted!');
-    window.location.reload();
-}
+// Handle Delete Account
+document.getElementById('deleteAccountBtn').addEventListener('click', function () {
+    if (confirm('Are you sure you want to delete your account? This action is irreversible.')) {
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+        // Remove user from list and update localStorage
+        users = users.filter(user => user.username !== currentUser.username);
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.removeItem('currentUser');
+
+        alert('Account deleted!');
+        window.location.href = 'index.html'; // Redirect to login/signup page
+    }
+});
     </script>
 </body>
 </html>
