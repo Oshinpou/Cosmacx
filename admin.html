@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: green;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+#message {
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <div id="usersData"></div>
+    <button id="logoutBtn">Log Out</button>
+
+    <script>
+
+      // Load user data and display it in the Admin panel
+document.addEventListener('DOMContentLoaded', function () {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const usersData = document.getElementById('usersData');
+
+    if (users.length === 0) {
+        usersData.textContent = 'No users found.';
+    } else {
+        usersData.innerHTML = '<h2>Registered Users:</h2>';
+        users.forEach((user, index) => {
+            usersData.innerHTML += `
+                <p><strong>User:</strong> ${user.username}, <strong>Email:</strong> ${user.email} 
+                <strong>Status:</strong> ${user.loggedIn ? 'Logged In' : 'Logged Out'}
+                <button onclick="deleteUser(${index})">Delete Account</button></p>
+            `;
+        });
+    }
+});
+
+// Log out and delete functions
+document.getElementById('logoutBtn').addEventListener('click', function () {
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    users.forEach(user => user.loggedIn = false);
+    localStorage.setItem('users', JSON.stringify(users));
+    alert('Logged out successfully!');
+    window.location.href = 'index.html'; // Redirect to login/signup page
+});
+
+function deleteUser(index) {
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    users.splice(index, 1);
+    localStorage.setItem('users', JSON.stringify(users));
+    alert('Account deleted!');
+    window.location.reload();
+}
+    </script>
+</body>
+</html>
