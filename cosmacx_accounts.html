@@ -106,8 +106,12 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     if (user) {
         user.loggedIn = true;
         localStorage.setItem('users', JSON.stringify(users));
+        
+        // Store current logged-in user info separately
+        localStorage.setItem('currentUser', JSON.stringify(user));
+
         alert('Login successful!');
-        window.location.href = 'admin.html'; // Redirect to admin page
+        window.location.href = 'account.html'; // Redirect to the user's account page
     } else {
         document.getElementById('message').textContent = 'Invalid login credentials!';
     }
